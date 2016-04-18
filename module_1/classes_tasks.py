@@ -44,12 +44,41 @@ class Buffer:
         # добавлены
         return self.val
 
-buf = Buffer()
-buf.add(1, 2, 3)
-print(buf.get_current_part()) # вернуть [1, 2, 3]
-buf.add(4, 5, 6) # print(15) – вывод суммы первой пятерки элементов
-print(buf.get_current_part()) # вернуть [6]
-buf.add(7, 8, 9, 10) # print(40) – вывод суммы второй пятерки элементов
-print(buf.get_current_part()) # вернуть []
-buf.add(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1) # print(5), print(5) – вывод сумм третьей и четвертой пятерки
-print(buf.get_current_part()) # вернуть [1]
+# buf = Buffer()
+# buf.add(1, 2, 3)
+# print(buf.get_current_part()) # вернуть [1, 2, 3]
+# buf.add(4, 5, 6) # print(15) – вывод суммы первой пятерки элементов
+# print(buf.get_current_part()) # вернуть [6]
+# buf.add(7, 8, 9, 10) # print(40) – вывод суммы второй пятерки элементов
+# print(buf.get_current_part()) # вернуть []
+# buf.add(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1) # print(5), print(5) – вывод сумм третьей и четвертой пятерки
+# print(buf.get_current_part()) # вернуть [1]
+
+class ExtendedStack(list):
+    def sum(self):
+        # операция сложения
+        x = self.pop()
+        y = self.pop()
+        self.append(x+y)
+
+    def sub(self):
+        # операция вычитания
+        x = self.pop()
+        y = self.pop()
+        self.append(x-y)
+
+    def mul(self):
+        # операция умножения
+        x = self.pop()
+        y = self.pop()
+        self.append(x*y)
+
+    def div(self):
+        # операция целочисленного деления
+        x = self.pop()
+        y = self.pop()
+        self.append(x//y)
+
+x = ExtendedStack([5, 11])
+x.div()
+print(x)

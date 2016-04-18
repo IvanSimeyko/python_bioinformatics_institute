@@ -79,6 +79,23 @@ class ExtendedStack(list):
         y = self.pop()
         self.append(x//y)
 
-x = ExtendedStack([5, 11])
-x.div()
+# x = ExtendedStack([5, 11])
+# x.div()
+# print(x)
+
+import time
+class Loggable:
+    def log(self, msg):
+        print(str(time.ctime()) + ": " + str(msg))
+
+class LoggableList(list, Loggable):
+
+    def append(self, elem):
+        x = super(LoggableList, self).append(elem)
+        self.log(elem)
+        return x
+
+x = LoggableList()
+print(x)
+x.append(4)
 print(x)

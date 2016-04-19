@@ -95,7 +95,31 @@ class LoggableList(list, Loggable):
         self.log(elem)
         return x
 
-x = LoggableList()
-print(x)
-x.append(4)
-print(x)
+# x = LoggableList()
+# print(x)
+# x.append(4)
+# print(x)
+
+def check(ansestors, child):
+    if ansestors in d[child]:
+        print("Yes")
+
+d = {}
+n = int(input("Enter number string: "))
+k = 0
+while k < n:
+    in_put = input('Enter class name: ').split(' : ')
+    if len(in_put) == 1:
+        d[in_put[0]] = []
+    else:
+        d[in_put[0]] = in_put[1].split()
+    print(in_put)
+    k += 1
+print(d)
+
+n = int(input("Enter number questions: "))
+k = 0
+while k < n:
+    ansestors, child = input('Enter question: ').split()
+    check(ansestors, child)
+    k += 1

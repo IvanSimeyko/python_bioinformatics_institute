@@ -100,9 +100,15 @@ class LoggableList(list, Loggable):
 # x.append(4)
 # print(x)
 
-def check(ansestors, child):
-    if ansestors in d[child]:
-        print("Yes")
+def check(ansestor, child):
+    if ansestor == child:
+        return 'Yes'
+    elif ansestor in d[child]:
+        return "Yes"
+    else:
+        for i in d[child]:
+            return check(ansestor, i)
+    return 'No'
 
 d = {}
 n = int(input("Enter number string: "))
@@ -120,6 +126,7 @@ print(d)
 n = int(input("Enter number questions: "))
 k = 0
 while k < n:
-    ansestors, child = input('Enter question: ').split()
-    check(ansestors, child)
+    ansestor, child = input('Enter question: ').split()
+    x = check(ansestor, child)
+    print(x)
     k += 1

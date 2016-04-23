@@ -21,8 +21,7 @@ class PositiveList(list):
         elif p_object <= 0:
             raise NonPositiveError(str(p_object) + ' is not positive number')
 
-a = PositiveList([1,2,3])
-a.append(4)
-print(a)
-a.append(-4)
-
+# a = PositiveList([1,2,3])
+# a.append(4)
+# print(a)
+# a.append(-4)

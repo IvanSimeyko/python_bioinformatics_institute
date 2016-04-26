@@ -18,10 +18,10 @@ class DoubleElementListIterator:
     def __iter__(self):
         return self
 
-x = DoubleElementListIterator([1, 2])
-print(next(x))
-print(next(x))
-print(next(x))
+# x = DoubleElementListIterator([1, 2])
+# print(next(x))
+# print(next(x))
+# print(next(x))
 
 
 # class multifilter:
@@ -65,28 +65,24 @@ print(next(x))
 # #print(list(multifilter(a, mul2, mul3, mul5)))
 # # [0, 2, 3, 4, 5, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21, 22, 24, 25, 26, 27, 28, 30]
 
-# import itertools
-# ans = []
-# def is_simple(n):
-#     d = n - 1
-#     while d > 1:
-#         if n % d == 0:
-#             return False
-#         d -= 1
-#     return True
-#
-# def primes():
-#     x = 2
-#     while True:
-#         if is_simple(x):
-#             ans.append(x)
-#             x += 1
-#         else:
-#             x += 1
-#             continue
-#     yield ans
-#
-#
-# # a = int(input('enter number: '))
-# # b = list(range(2, a+1))
-# print(list(itertools.takewhile(lambda x: x <= 5, primes())))
+import itertools
+ans = []
+def is_simple(n):
+    d = n - 1
+    while d > 1:
+        if n % d == 0:
+            return False
+        d -= 1
+    return True
+
+def primes():
+    x = 2
+    while True:
+        if is_simple(x):
+            yield x
+            x += 1
+        else:
+            x += 1
+            continue
+
+print(list(itertools.takewhile(lambda x: x <= 31, primes())))

@@ -1,0 +1,9 @@
+6
+A
+B : A
+C : B
+G
+D : G
+E : C D
+1
+G E

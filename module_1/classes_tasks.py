@@ -100,15 +100,27 @@ class LoggableList(list, Loggable):
 # x.append(4)
 # print(x)
 
+import sys
+sys.stdin = open("input.txt", "r")
+
+ans = []
+
 def check(ansestor, child):
     if ansestor == child:
-        return 'Yes'
+        ans.append(1)
+        return ans
+    elif child not in d:
+        ans.append(0)
+        return ans
     elif ansestor in d[child]:
-        return "Yes"
-    else:
-        for i in d[child]:
-            return check(ansestor, i)
-    return 'No'
+        ans.append(1)
+        return ans
+    for i in d[child]:
+        #if len(d[child]) > 0:
+        if check(ansestor, i):
+            return 'Yes'
+
+    #return 'No'
 
 d = {}
 n = int(input("Enter number string: "))
@@ -120,6 +132,10 @@ while k < n:
     else:
         d[in_put[0]] = in_put[1].split()
     print(in_put)
+    if len(in_put) > 1:
+        for i in in_put[1].split():
+            if i not in d:
+                d[i] = []
     k += 1
 print(d)
 
@@ -128,5 +144,9 @@ k = 0
 while k < n:
     ansestor, child = input('Enter question: ').split()
     x = check(ansestor, child)
-    print(x)
+    if 1 in ans:
+        print("Yes")
+    else:
+        print('No')
+    ans = []
     k += 1

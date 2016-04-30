@@ -1,7 +1,8 @@
 import datetime
+import simplecrypt
 
-date = input('Enter date: ').split()
-num_days = int(input('Enter number of days: '))
+# date = input('Enter date: ').split()
+# num_days = int(input('Enter number of days: '))
 
 def res(date, num_days):
     res = ''
@@ -11,4 +12,15 @@ def res(date, num_days):
         res += str(i) + ' '
     return res
 
-print(res(date, num_days))
+# print(res(date, num_days))
+
+def a(a, l):
+    if a == 5:
+        return 'yes'
+    else:
+        for i in l:
+            return a(i, l)
+
+print(a(3, [1,2,3,4,5,6]))
+
+

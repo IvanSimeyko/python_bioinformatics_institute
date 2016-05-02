@@ -21,6 +21,11 @@ def a(a, l):
         for i in l:
             return a(i, l)
 
-print(a(3, [1,2,3,4,5,6]))
+#print(a(3, [1, 2, 3, 4, 5, 6]))
 
+with open('encrypted.bin', 'rb') as inp:
+    encrepted = inp.read()
+    print(encrepted)
+    dec = simplecrypt.decrypt('RVrF2qdMpoq6Lib', encrepted)
+    print(dec)
 

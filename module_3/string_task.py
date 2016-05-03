@@ -14,13 +14,10 @@ def check_contain():
             s = s.replace(a, b)
         print(len(num))
 
-
-def a(c, d):
-    def b(c=c, d=d):
-        if d > 0:
-            d -= 1
-            return  d +c
-    return b
-
-# x = a(5, 1)
-# print(x())
+def check_contain_2():
+    """
+    Решение задачи 3.2 шаг 7
+    """
+    s, t = [input('Enter value: '). strip() for _ in range(2)]
+    x = sum(s[i:].startswith(t) for i in range(len(s)))
+    print(x)

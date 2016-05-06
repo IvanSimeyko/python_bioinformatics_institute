@@ -24,6 +24,7 @@ string = r'Do you speak english?'
 match_object = re.search(pattern, string)
 print('match_object= ', match_object)
 
+
 #example with ( )
 pattern = r'(test|text)*'
 string = r'testtext'

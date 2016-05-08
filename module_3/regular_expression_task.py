@@ -1,8 +1,8 @@
 import re
 #
 # # video examples
-# pattern = r'abc'
-# string = r'dabc'
+pattern = r'abc'
+string = r'dabc'
 # match_object = re.search(pattern, string)
 # print('match_object=', match_object)
 #
@@ -102,4 +102,43 @@ def fifth():
         if x:
             print(line)
 
-fifth()
+# fifth()
+
+
+def sixth():
+    for line in sys.stdin:
+        line = line.rstrip()
+        pattern = r"human"
+        line = re.sub(pattern, 'computer', line)
+        print(line)
+
+# sixth()
+
+
+def seventh():
+    for line in sys.stdin:
+        line = line.rstrip()
+        pattern = r'\ba+\b'    # world contained only charter a
+        line = re.sub(pattern, 'argh', line, 1, re.IGNORECASE)
+        print(line)
+
+#seventh()
+
+
+def eighth():
+    for line in sys.stdin:
+        line = line.rstrip()
+        pattern = r'\b(\w)(\w)'  # get the first two letters in words
+        line = re.sub(pattern, r'\2\1', line)  # swap letters
+        print(line)
+
+#eighth()
+
+def ninth():
+    for line in sys.stdin:
+        line = line.rstrip()
+        pattern = r'(.)\1{1,}'  # matches one or more characters from 1st group
+        line = re.sub(pattern, r'\1', line)  #
+        print(line)
+
+ninth()

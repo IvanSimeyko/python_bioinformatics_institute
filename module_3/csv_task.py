@@ -1,6 +1,6 @@
 import operator
 import csv
-
+import json
 
 def first_task():
     d = {}
@@ -15,4 +15,30 @@ def first_task():
 
     print(max(d, key=lambda i: d[i]))
 
-first_task()
+#first_task()
+
+import sys
+sys.stdin = open("class.json", "r")
+d = {}
+ans = {}
+
+
+def check(child, parents):
+    """
+    Доделать фуннкцию!!!
+    """
+
+def second():
+    f = input()
+    data = json.loads(f)
+    print(data)
+    for i in data:
+        print(i)
+        d[i['name']] = i['parents']
+    print(d)
+
+# for key, value in sorted(ans.items()):  # Note the () after items!
+#     print(key, ':', value)
+
+
+second()

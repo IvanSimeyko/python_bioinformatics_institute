@@ -71,17 +71,20 @@ def developers_artsy_net():
         # инициируем запрос с заголовком
         r = requests.get(api_url, headers=headers)
 
+        r.encoding = "utf-8"
+
         # разбираем ответ сервера
         j = json.loads(r.text)
-        if j['birthday'] not in res:
+        print(j['birthday'])
+        if int(j['birthday']) not in res:
             year = int(j['birthday'])
             res[year] = []
             res[year].append(j['sortable_name'])
-        elif j['birthday'] in res:
+        elif int(j['birthday']) in res:
             year = int(j['birthday'])
             res[year].append(j['sortable_name'])
 
-        print(res)
+    print(res)
     # sort and output answer
     for key, value in sorted(res.items()):
         if len(value) > 1:

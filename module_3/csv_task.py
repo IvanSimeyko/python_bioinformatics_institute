@@ -17,6 +17,8 @@ def first_task():
 
 #first_task()
 
+# code second task
+
 import sys
 sys.stdin = open("class.json", "r")
 d = {}

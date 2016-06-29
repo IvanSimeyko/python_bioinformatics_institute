@@ -25,22 +25,34 @@ d = {}
 ans = {}
 
 
-def check(child, parents):
+def check(d, child, parents):
     """
-    Доделать фуннкцию!!!
+    Функция проверки предков и наследников
     """
+    if child not in ans:
+        ans[child] = 1
+    if len(parents) > 0:
+        for i in parents:
+            if i not in ans:
+                ans[i] = 1
+            ans[i] += 1
+        for j in d:
+            if child in d[j] and i not in d[j]:
+                ans[i] += 1
+    return ans
 
-def second():
+def input_date():
     f = input()
     data = json.loads(f)
-    print(data)
+    #print(data)
+    # make dictionary
     for i in data:
-        print(i)
+        #print(i)
         d[i['name']] = i['parents']
     print(d)
+    for elem in d:
+        check(d, elem, d[elem])
+    for key, value in sorted(ans.items()):  # Note the () after items!
+        print(key, ':', value)
 
-# for key, value in sorted(ans.items()):  # Note the () after items!
-#     print(key, ':', value)
-
-
-second()
+input_date()

@@ -18,7 +18,7 @@ while k < n:
     urls.append(input('Enter url: ').strip())
     k += 1
 
-# make get request
+# do get request
 r = requests.get(urls[0])
 #print(r.text)
 
@@ -32,14 +32,17 @@ def find_urls(reg):
 link = find_urls(r)
 print(link)
 
-# go to all link in page and find  particular url
+# go to all link in page and find particular url
 def go_and_find(link, find_url):
     for i in link:
         r = requests.get(i)
-        all_links = find_urls(r)
-        if find_url in all_links:
-            return 'Yes'
+        if r.status_code == 200:
+            all_links = find_urls(r)
+            if find_url in all_links:
+                return 'Yes'
     return 'No'
 
-print(go_and_find(link, urls[1]))
+#print(go_and_find(link, urls[1]))
+
+
 

@@ -1,1 +1,2 @@
-[{"name": "B", "parents": ["A", "C"]}, {"name": "C", "parents": ["A"]}, {"name": "A", "parents": []}, {"name": "D", "parents":["C", "F"]}, {"name": "E", "parents":["D"]}, {"name": "F", "parents":[]}]
+[{"name": "A", "parents": []}, {"name": "B", "parents": ["A", "C"]}, {"name": "C", "parents": ["A"]}, {"name": "D", "parents": ["B"]}]
+http://www.complexdoc.ru/ntdpdf/544654/posobie_po_proektirovaniyu_predvaritelno_napryazhennykh_zhelezobetonnykh.pdf
